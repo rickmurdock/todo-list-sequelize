@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "rickmurdock",
+    "password": null,
+    "database": "sequelizeDB",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "rickmurdock",
+    "password": null,
+    "database": "sequelizeDB",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "rickmurdock",
+    "password": null,
+    "database": "sequelizeDB",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
