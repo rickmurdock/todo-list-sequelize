@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Build a todo list</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+  </head>
+  <body>
+  <div id="wrapper">
+    <h1>Get 'er Done List</h1>
+    <form action="/" method="post">
+    <input type="text" name="newItem" placeholder="Add a todo..."> 
+    <input type="submit" value="Add todo">
+    </form>
+    <br>
+    <ul>
+      {{#listBox}}
+      {{^complete}}
+        <li><input type="checkbox" class="done" name="items"><span class="listitem"> {{item}}</span></li>
+      {{/complete}}
+      {{/listBox}}
+    </ul>
+  </div>
+  </body>
+</html>

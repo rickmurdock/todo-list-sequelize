@@ -1,0 +1,61 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+#wrapper {
+  font-family: 'Architects Daughter', cursive;
+  margin: 0 auto;
+  text-align: left;
+  width:532px;
+}
+
+h1 {
+  font-size: 3em;
+  margin: 30px;
+  text-align: center;
+}
+
+input[type=text] {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px 10px;
+  width: 75%;
+}
+
+input[type=submit] {
+  background-color: lightgreen;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-left: 10px;
+  padding: 5px 10px;
+  width: 20%;
+}
+
+input[type=submit]:hover {
+  color: white;
+  background-color: mediumseagreen;
+}
+
+ul {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 2em;
+  list-style: none;
+}
+
+.done:checked + span {
+  text-decoration: line-through;
+}
+
+checkbox {
+  padding: 10px;
+}
