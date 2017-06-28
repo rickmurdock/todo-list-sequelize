@@ -6,9 +6,9 @@ const models = require("./models");
 const port = 7000;
 var app = express();
 
-var listData = [{'item': 'eat', 'complete': false}, 
-                {'item': 'sleep', 'complete': false},
-                {'item': 'code', 'complete': false} ];
+// var listData = [{'item': 'eat', 'complete': false}, 
+//                 {'item': 'sleep', 'complete': false},
+//                 {'item': 'code', 'complete': false} ];
 
 // RENDER ENGINE
 app.engine("mustache", mustacheExpress());
@@ -22,9 +22,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan("dev"));
 
 // ROUTES
-app.get("/", function(req, res){
-  res.render("index", {listBox: listData});
+app.get("/", function(req, res) {
+  models.todo
+    .findAll()
+    .then(function(foundTodo) {
+    // res.send(foundTodo);
+    res.render("index", {listBox: foundTodo});
+  })
+  .catch(function(err) {
+    res.status(500).send(err);
+  });
 });
+
+// app.get("/", function(req, res){
+//   res.render("index", {listBox: listData});
+// });
 
 // app.post('/', function(req, res) {
 //   var newItem = req.body.newItem;
@@ -39,7 +51,8 @@ app.post("/", function(req, res) {
   newItem
     .save()
     .then(function(savedTodo) {
-      res.send(savedTodo);
+      // res.send(savedTodo);
+      res.redirect("/");
     })
     .catch(function(err) {
       res.status(500).send(err);
