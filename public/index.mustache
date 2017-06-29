@@ -36,10 +36,13 @@
             <input type="submit" name="completed" value="Delete" class="delBtn" onclick="this.value='{{id}}'; this.form.submit();">
             <span class="listitem"> {{item}}</span>
           </li>
-       
       {{/complete}}
       {{/listBox}}
       </ul>
+    </form>
+    <br>
+    <form action="/deletecompleted" method="post">
+      <input type="submit" name="deletecompleted" value="Delete all completed">
     </form>
   </div>
   </body>

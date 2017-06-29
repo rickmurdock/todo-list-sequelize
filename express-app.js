@@ -51,7 +51,7 @@ app.post("/", function(req, res) {
 app.post("/completed", function(req, res) {
   var todoComplete = req.body.incomplete;
   models.todo
-    .update( { completed: true}, { where: { id: todoComplete } })
+    .update( { complete: true}, { where: { id: todoComplete } })
     .then (function() {
       res.redirect("/");
     })
@@ -64,6 +64,18 @@ app.post("/delete", function(req, res) {
   var delId = req.body.completed;
   models.todo
     .destroy({ where: { id: delId } })
+    .then(function() {
+      res.redirect("/");
+    })
+    .catch(function(err) {
+      res.status(500).send(err);
+    });
+});
+
+app.post("/deletecompleted", function(req, res) {
+  // var delId = req.body.completed;
+  models.todo
+    .destroy({ where: { complete: true } })
     .then(function() {
       res.redirect("/");
     })
