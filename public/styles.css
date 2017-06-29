@@ -48,7 +48,7 @@ input[type=submit]:hover {
 
 ul {
   font-family: 'Architects Daughter', cursive;
-  font-size: 2em;
+  font-size: 1.4em;
   list-style: none;
 }
 
@@ -56,6 +56,15 @@ ul {
   text-decoration: line-through;
 }
 
+.done {
+  font-size: .8em;
+  width: 150px;
+}
+
 checkbox {
   padding: 10px;
+}
+
+.delBtn {
+  color: red;
 }

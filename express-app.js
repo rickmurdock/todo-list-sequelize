@@ -34,24 +34,30 @@ app.get("/", function(req, res) {
   });
 });
 
-// app.get("/", function(req, res){
-//   res.render("index", {listBox: listData});
-// });
-
-// app.post('/', function(req, res) {
-//   var newItem = req.body.newItem;
-//   listData.push({'item': newItem, 'complete': false});
-//   res.redirect('/');
-// });
-
 app.post("/", function(req, res) {
   var todoData = req.body.item;
-  
   var newItem = models.todo.build({ item:todoData });
   newItem
     .save()
     .then(function(savedTodo) {
       // res.send(savedTodo);
+      res.redirect("/");
+    })
+    .catch(function(err) {
+      res.status(500).send(err);
+    });
+});
+
+// app.post("/completed", function(req, res) {
+//   var todoComplete = req.body.item;
+// });
+
+app.post("/delete", function(req, res) {
+  console.log("in /DELETE");
+  delId = req.body.completed;
+  models.todo
+    .destroy({ where: { id: delId } })
+    .then(function() {
       res.redirect("/");
     })
     .catch(function(err) {
