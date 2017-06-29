@@ -25,6 +25,10 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-size: 2em;
+}
+
 input[type=text] {
   border: 1px solid black;
   border-radius: 10px;
@@ -38,7 +42,11 @@ input[type=submit] {
   border-radius: 10px;
   margin-left: 10px;
   padding: 5px 10px;
-  width: 20%;
+  
+}
+
+.todoBtn {
+width: 20%;
 }
 
 input[type=submit]:hover {
@@ -52,19 +60,13 @@ ul {
   list-style: none;
 }
 
-.done:checked + span {
-  text-decoration: line-through;
-}
-
-.done {
+.done,
+.delBtn {
   font-size: .8em;
   width: 150px;
 }
 
-checkbox {
-  padding: 10px;
-}
-
-.delBtn {
+.delAll {
+  font-size: 1.2em;
   color: red;
 }

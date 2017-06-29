@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Build a todo list</title>
+    <title>Revisit Todo List with Sequelize</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
@@ -12,7 +12,7 @@
     <h1>Get 'er Done List</h1>
     <form action="/" method="post">
     <input type="text" name="item" placeholder="Add a todo..."> 
-    <input type="submit" value="Add todo">
+    <input type="submit" value="Add todo" class="todoBtn">
     </form>
     <br>
     <form action="/completed" method="post">
@@ -27,13 +27,13 @@
       {{/listBox}}
       </ul>
     </form>
-    <p>Completed tasks</p>
+    <h2 id="completed-tasks">Completed tasks</h2>
     <form action="/delete" method="post">
       <ul>
       {{#listBox}}
       {{#complete}}
           <li>
-            <input type="submit" name="completed" value="Delete" class="delBtn" onclick="this.value='{{id}}'; this.form.submit();">
+            <input type="submit" name="completed" value="Delete task" class="delBtn" onclick="this.value='{{id}}'; this.form.submit();">
             <span class="listitem"> {{item}}</span>
           </li>
       {{/complete}}
@@ -42,7 +42,7 @@
     </form>
     <br>
     <form action="/deletecompleted" method="post">
-      <input type="submit" name="deletecompleted" value="Delete all completed">
+      <input type="submit" name="deletecompleted" value="Delete all completed" class="delAll">
     </form>
   </div>
   </body>
