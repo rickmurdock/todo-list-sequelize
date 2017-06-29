@@ -6,10 +6,6 @@ const models = require("./models");
 const port = 7000;
 var app = express();
 
-// var listData = [{'item': 'eat', 'complete': false}, 
-//                 {'item': 'sleep', 'complete': false},
-//                 {'item': 'code', 'complete': false} ];
-
 // RENDER ENGINE
 app.engine("mustache", mustacheExpress());
 app.set("views", "./public");
