@@ -15,14 +15,18 @@
     <input type="submit" value="Add todo">
     </form>
     <br>
-    <!--<form action="/delete" method="delete">-->
-    <ul>
+    <form action="/completed" method="post">
+      <ul>
       {{#listBox}}
       {{^complete}}
-        <li><input type="submit" id={{id}} value="Mark complete" class="done" name="items"><span class="listitem"> {{item}}</span></li>
+        <li>
+          <input type="submit" name="incomplete" value="Mark complete" class="done" onclick="this.value='{{id}}'; this.form.submit();">
+          <span class="listitem"> {{item}}</span>
+        </li>
       {{/complete}}
       {{/listBox}}
-    </ul>
+      </ul>
+    </form>
     <p>Completed tasks</p>
     <form action="/delete" method="post">
       <ul>
@@ -32,7 +36,7 @@
             <input type="submit" name="completed" value="Delete" class="delBtn" onclick="this.value='{{id}}'; this.form.submit();">
             <span class="listitem"> {{item}}</span>
           </li>
-       </form>
+       
       {{/complete}}
       {{/listBox}}
       </ul>

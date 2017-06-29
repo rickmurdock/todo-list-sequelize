@@ -48,13 +48,20 @@ app.post("/", function(req, res) {
     });
 });
 
-// app.post("/completed", function(req, res) {
-//   var todoComplete = req.body.item;
-// });
+app.post("/completed", function(req, res) {
+  var todoComplete = req.body.incomplete;
+  models.todo
+    .update( { completed: true}, { where: { id: todoComplete } })
+    .then (function() {
+      res.redirect("/");
+    })
+      .catch(function(err) {
+      res.status(500).send(err);
+    });
+});
 
 app.post("/delete", function(req, res) {
-  console.log("in /DELETE");
-  delId = req.body.completed;
+  var delId = req.body.completed;
   models.todo
     .destroy({ where: { id: delId } })
     .then(function() {
