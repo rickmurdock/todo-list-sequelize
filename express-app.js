@@ -20,9 +20,8 @@ app.use(morgan("dev"));
 // ROUTES
 app.get("/", function(req, res) {
   models.todo
-    .findAll()
+    .findAll({order: [['createdAt', 'DESC']]})
     .then(function(foundTodo) {
-    // res.send(foundTodo);
     res.render("index", {listBox: foundTodo});
   })
   .catch(function(err) {
@@ -32,11 +31,10 @@ app.get("/", function(req, res) {
 
 app.post("/", function(req, res) {
   var todoData = req.body.item;
-  var newItem = models.todo.build({ item:todoData });
+  var newItem = models.todo.build({ item: todoData });
   newItem
     .save()
     .then(function(savedTodo) {
-      // res.send(savedTodo);
       res.redirect("/");
     })
     .catch(function(err) {
@@ -69,7 +67,6 @@ app.post("/delete", function(req, res) {
 });
 
 app.post("/deletecompleted", function(req, res) {
-  // var delId = req.body.completed;
   models.todo
     .destroy({ where: { complete: true } })
     .then(function() {
